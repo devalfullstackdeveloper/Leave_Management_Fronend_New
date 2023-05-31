@@ -1,0 +1,82 @@
+<div class="auth_screen_main_wrapper">
+    <div class="row">
+        <div class="auth_screen_left_wrapper col-md-6">
+            <div class="card_box">
+                <div class="welcome_text">
+                    <h1>Welcome!</h1>
+                    <p>Sign in to continue.</p>
+                </div>
+                <div>
+                    <form [formGroup]="loginForm">
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email<span class="required-astrick">*</span></label>
+                            <div>
+                                <input type="email" class="form-control" formControlName="email"
+                                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Your email address"
+                                    id="email" (keydown.enter)='submit()'>
+                            </div>
+                            <div *ngIf="submitted && loginFormControl['email']?.errors">
+                                <div *ngIf="loginFormControl['email'].errors?.['required']" class="text-danger">
+                                    <img src="assets/image/icons/danger.svg" alt="danger"> Please enter email address
+                                </div>
+                                <div *ngIf="loginFormControl['email'].errors?.['email'] || loginFormControl['email'].errors?.['pattern']"
+                                    class="text-danger">
+                                    <img src="assets/image/icons/danger.svg" alt="danger"> Please enter valid email
+                                    address
+                                </div>
+                            </div>
+                            <div *ngIf="submitted && errMsg !== ''">
+                                <div *ngIf="loginFormControl['email'].errors?.['invalid']" class="text-danger">
+                                    {{loginFormControl['email'].errors?.['invalid']}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password<span class="required-astrick">*</span> </label>
+                            <div>
+                                <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                                    class="form-control" placeholder="Enter Your password" id="pwd" minlength="8"
+                                    (keydown.enter)='submit()' />
+                                <!-- <span class="eye_icon" *ngIf="showPassword" (click)="showHidePassword()"><img
+                                        src="assets/image/icons/eye.svg" alt="lock"></span>
+                                <span class="eye_icon" *ngIf="!showPassword" (click)="showHidePassword()"><img
+                                        src="assets/image/icons/eye_slash.svg" alt="unlock"></span> -->
+
+                            </div>
+                            <div *ngIf="submitted && loginFormControl['password']?.errors">
+                                <div *ngIf="loginFormControl['password'].errors?.['required']" class="text-danger">
+                                    <img src="assets/image/icons/danger.svg" alt="danger"> Please enter password
+                                </div>
+                                <div *ngIf="loginFormControl['password'].errors?.['minlength']" class="text-danger">
+                                    <img src="assets/image/icons/danger.svg" alt="danger"> Password must be at least 8
+                                    characters.
+                                </div>
+                            </div>
+                            <div *ngIf="submitted && errMsg !== ''">
+                                <div *ngIf="loginFormControl['password'].errors?.['invalid']" class="text-danger"
+                                    style="background-color: aliceblue;">
+                                    {{loginFormControl['password'].errors?.['invalid']}}
+                                </div>
+                            </div>
+
+                            <div class="eye-icon-wrap">
+                            <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                            <mat-icon >visibility</mat-icon>
+                            
+                            </div>
+
+                        </div>
+                        <div>
+                            <button type="submit" class="btn pinkish_red_button" (click)="submit()">Login</button>
+                        </div>
+                        <div class="auth_screen_bottom_wrapper">
+                            <p> Forgot your password? <a href="#">Change now</a></p>
+                            <p>Do you want to reset your password ? <a [routerLink]="['/resetpassword']">Reset now</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="auth_screen_right_wrapper col-md-6"></div>
+    </div>
+</div>

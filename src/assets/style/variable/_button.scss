@@ -1,0 +1,17 @@
+.pinkish_red_button {
+    background-color: $pinkish_red;
+    color: $bg_white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    text-align: center;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid $pinkish_red;
+    margin: 1rem 0;
+    &:hover {
+        background-color: $bg_white;
+        color: $pinkish_red;
+        border: 1px solid $pinkish_red;
+    }
+}

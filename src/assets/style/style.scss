@@ -1,0 +1,94 @@
+@import 'variable/variable';
+.auth_screen_main_wrapper {
+    overflow: hidden;
+    .auth_screen_left_wrapper{
+        background-image: url(../image/auth/left_bg.svg);
+        min-height: 100vh;
+        background-position: center; 
+        background-size: cover;
+        padding: 0;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .card_box {
+            background-color: $bg_white;
+            padding: 30px;
+            width: 550px;
+            box-shadow: 4px 4px 12px 0px #00000014;
+            border-radius: 12px;
+            .welcome_text {
+                text-align: center;
+                h1 {
+                    color: $blackish_blue;
+                    font-size: 24px;
+                    line-height: 32px;
+                    font-weight: 600;
+                             
+                }
+                p{
+                    color: $pinkish_red;   
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;       
+                }
+            }
+        }
+        .auth_screen_bottom_wrapper  {
+            padding: 15px 0;
+            text-align: center;
+            p {
+                color: $gray;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 400;
+                a {
+                    color: $pinkish_red;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .auth_screen_right_wrapper{
+        background-image: url(../image/auth/right_bg.svg);
+        min-height: 100vh;
+        background-position: center; 
+        background-size: cover;
+        padding: 0;
+        background-repeat: no-repeat;
+      
+    }
+}
+// form group text field css
+
+.form-group {
+    margin-bottom: 18px;
+    label {
+        margin-bottom: 10px;
+        color: $label_color;
+        span {
+            color: $pinkish_red;
+        }
+    }
+    .form-control {
+        line-height: 2;
+        color: $input_text_color;
+        outline: unset;
+        &:focus,&:active {
+            box-shadow:none;
+            outline: unset;
+        }
+    }
+    .eye-icon-wrap {
+        position: relative;
+        .mat-icon {
+            position: absolute;
+            top: -35px;
+            right: 12px;
+            left: auto;
+        }
+    }
+}
