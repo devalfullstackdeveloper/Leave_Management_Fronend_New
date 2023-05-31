@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod --base-href /leave-management/",
-    "build:dev": "ng build -c dev --base-href /leave-management-dev/",
+    "build:dev": "ng build -c dev --base-href /leave-management-new/",
     "build:devnew": "ng build -c dev --base-href /leave-management-new/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
