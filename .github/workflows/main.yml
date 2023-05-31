@@ -48,7 +48,7 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm i
-          npm run build:prod
+          npm run build:devnew
           
       - name: Delete Existing Files
         run : sudo sshpass -p '${{ secrets.SSH_PASS }}' -v ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'rm -rf /var/www/html/leave-management-new'
