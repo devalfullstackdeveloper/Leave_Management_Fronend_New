@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.component';
+import { SharedModule } from './shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { AuthenticateInterceptor } from './authenticate.interceptor';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -23,17 +27,19 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatIconModule,
-    MatCardModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
+    SharedModule,
+    MatIconModule,
     FormsModule,
     HttpClientModule,
-
-
+    ReactiveFormsModule,
+    MatTableModule ,
+    MatPaginatorModule,
+    MatSortModule
+    
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthenticateInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

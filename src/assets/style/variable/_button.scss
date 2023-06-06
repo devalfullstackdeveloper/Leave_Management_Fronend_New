@@ -15,3 +15,20 @@
         border: 1px solid $pinkish_red;
     }
 }
+.blackish_blue_button  {
+    background-color: $blackish_blue;
+    color: $bg_white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid $blackish_blue;
+    padding: 4px 30px !important;
+    &:hover {
+        background-color: $bg_white;
+        color: $blackish_blue;
+        border: 1px solid $blackish_blue;
+        padding: 4px 30px !important;
+    }
+}

@@ -13,11 +13,11 @@
                             <div>
                                 <input type="email" class="form-control" formControlName="email"
                                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Your email address"
-                                    id="email" (keydown.enter)='submit()'>
+                                    id="email" (keydown.enter)='login()'>
                             </div>
                             <div *ngIf="submitted && loginFormControl['email']?.errors">
                                 <div *ngIf="loginFormControl['email'].errors?.['required']" class="text-danger">
-                                    <img src="assets/image/icons/danger.svg" alt="danger"> Please enter email address
+                                <img src="assets/image/icons/danger.svg" alt="danger"> Please enter email address
                                 </div>
                                 <div *ngIf="loginFormControl['email'].errors?.['email'] || loginFormControl['email'].errors?.['pattern']"
                                     class="text-danger">
@@ -34,14 +34,9 @@
                         <div class="form-group">
                             <label for="pwd">Password<span class="required-astrick">*</span> </label>
                             <div>
-                                <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                                <input [type]="hidePassword ? 'password' : 'text'" formControlName="password"
                                     class="form-control" placeholder="Enter Your password" id="pwd" minlength="8"
-                                    (keydown.enter)='submit()' />
-                                <!-- <span class="eye_icon" *ngIf="showPassword" (click)="showHidePassword()"><img
-                                        src="assets/image/icons/eye.svg" alt="lock"></span>
-                                <span class="eye_icon" *ngIf="!showPassword" (click)="showHidePassword()"><img
-                                        src="assets/image/icons/eye_slash.svg" alt="unlock"></span> -->
-
+                                    (keydown.enter)='login()' />
                             </div>
                             <div *ngIf="submitted && loginFormControl['password']?.errors">
                                 <div *ngIf="loginFormControl['password'].errors?.['required']" class="text-danger">
@@ -60,17 +55,19 @@
                             </div>
 
                             <div class="eye-icon-wrap">
-                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                            <mat-icon >visibility</mat-icon>
+                                <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                                    {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                                </mat-icon>
                             </div>
 
                         </div>
                         <div>
-                            <button type="submit" class="btn pinkish_red_button" (click)="submit()">Login</button>
+                            <button type="submit" class="btn pinkish_red_button" (click)="login()">Login</button>
                         </div>
                         <div class="auth_screen_bottom_wrapper">
-                            <p> Forgot your password? <a href="#">Change now</a></p>
-                            <p>Do you want to reset your password ? <a [routerLink]="['/resetpassword']">Reset now</a></p>
+                            <p> Forgot your password? <a [routerLink]="['/forgetpassword']">Change now</a></p>
+                            <p>Do you want to reset your password ? <a [routerLink]="['/resetpassword']">Reset now</a>
+                            </p>
                         </div>
                     </form>
                 </div>

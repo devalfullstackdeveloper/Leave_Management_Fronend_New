@@ -1,0 +1,38 @@
+<!-- <mat-drawer-container>
+    <mat-drawer #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches"
+        [ngClass]="{ 'sidenav-collapsed': collapsedNav && !mobileQuery.matches }">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content [ngClass]="{ 'sidenav-collapsed': collapsedNav && !mobileQuery.matches }">
+        <app-header></app-header>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container> -->
+
+<mat-drawer-container class="drawer-container-wrap">
+    <mat-drawer #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches"
+        [ngClass]="{'sidenav-collapsed': collapsedNav && !mobileQuery.matches}">
+        <div class="sidenav-header" (click)="mobileQuery.matches ? snav.toggle() : collapsedNav = !collapsedNav">
+            <span>{{collapsedNav &&
+                !mobileQuery.matches ? 'i' : 'It idol'}}</span>
+                <!-- <img *ngIf="collapsedNav && !mobileQuery.matches " src="assets/image/icons/danger.svg">
+                <img *ngIf="!mobileQuery.matches && !collapsedNav" src="https://img.shields.io/npm/dm/webpack.svg"> -->
+        </div>
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content [ngClass]="{'sidenav-collapsed': collapsedNav && !mobileQuery.matches}">
+        <mat-toolbar>
+            <button class="menu-mobile" mat-icon-button
+                (click)="mobileQuery.matches ? snav.toggle() : collapsedNav = !collapsedNav">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <app-header></app-header>
+        </mat-toolbar>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+<!-- <button mat-icon-button (click)="snav.toggle()"> -->
