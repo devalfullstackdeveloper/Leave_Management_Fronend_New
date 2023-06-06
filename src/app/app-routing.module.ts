@@ -1,13 +1,19 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.component';
 import { LoginComponent } from './auth/login/login.component';
-import { DashboardModule } from './lms-pages/dashboard/dashboard.module';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
+import { LayoutModule } from './pages/layout/layout.module';
+import { AuthGuard } from './shared/guard/auth.guard';
+
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo:'layout', pathMatch:'full'},
+  { path: 'login', component: LoginComponent},
   { path: 'resetpassword', component: ResetpasswordComponent },
-  { path: 'dashboard', loadChildren: () => DashboardModule }
+  { path: 'forgetpassword', component: ForgetpasswordComponent },
+  { path: 'layout', canActivate: [AuthGuard], loadChildren: () => LayoutModule },
+  
 ];
 
 @NgModule({

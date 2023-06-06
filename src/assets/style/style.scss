@@ -1,4 +1,11 @@
 @import 'variable/variable';
+html, body {
+    height: 100%; 
+   }
+body {
+    margin: 0; 
+    font-family: Zoho Puvi, "Helvetica Neue", sans-serif !important;
+   }
 .auth_screen_main_wrapper {
     overflow: hidden;
     .auth_screen_left_wrapper{
@@ -14,11 +21,12 @@
         .card_box {
             background-color: $bg_white;
             padding: 30px;
-            width: 550px;
+            width: 500px;
             box-shadow: 4px 4px 12px 0px #00000014;
             border-radius: 12px;
             .welcome_text {
                 text-align: center;
+                padding-bottom: 40px;
                 h1 {
                     color: $blackish_blue;
                     font-size: 24px;
@@ -30,7 +38,8 @@
                     color: $pinkish_red;   
                     font-weight: 400;
                     font-size: 16px;
-                    line-height: 24px;       
+                    line-height: 24px;     
+                    margin-bottom: 0;  
                 }
             }
         }

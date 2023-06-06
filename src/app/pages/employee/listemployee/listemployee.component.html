@@ -1,0 +1,10 @@
+<div>
+    <a class="nav-link" [routerLink]="['/layout/employee/add']"><button class="btn btn-primary" type="button">Add
+    Employee</button></a>
+</div>
+<img [src]="imageUrl" alt="">
+<app-commontable [dataSource]="dataSource" [columns]="columns" >
+</app-commontable>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons aria-label="Select page of periodic elements">
+</mat-paginator>

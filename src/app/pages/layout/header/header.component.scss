@@ -1,0 +1,23 @@
+@import '../../../../assets/style/variable/variable';
+.header-main{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    .logout-btn {
+        background-color: $bg_white;
+        padding: 10px 20px;
+        color: $blackish_blue;
+        text-decoration: unset;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        border-radius: 12px;
+        box-shadow: 14px 17px 40px 4px #7090B014;
+        display: flex;
+        align-items: center;
+        mat-icon {
+            margin: 0 8px;
+        }
+
+    }
+}

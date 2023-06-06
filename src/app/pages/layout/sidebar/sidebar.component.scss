@@ -1,0 +1,44 @@
+@import '../../../../assets/style/variable/variable';
+.sidebar_menu_wrap {
+    padding: 20px 0;
+    .sidebar-title {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        color: $blackish_blue;
+        padding: 0 20px;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+            padding: 10px;
+            .menu-wrap {
+                display: flex;
+                align-items: center;
+                span {
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+}
+.sidenav-collapsed {
+    .sidebar_menu_wrap {
+        .sidebar-title {
+            border-bottom: 2px dashed $gray_one;
+            color: transparent;
+            margin: 0px 10px;            
+            font-size: 0;
+        }
+        ul {          
+            li {
+                .menu-wrap {
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
