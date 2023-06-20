@@ -10,39 +10,43 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="First Name">First Name<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="first_name" placeholder="First Name" id="first-name">
+                                <input type="text" class="form-control" formControlName="first_name"
+                                    placeholder="First Name" id="first-name">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Middle Name">Middle Name<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="middle_name" placeholder="Middle Name" id="middle-name">
+                                <input type="text" class="form-control" formControlName="middle_name"
+                                    placeholder="Middle Name" id="middle-name">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Last Name">Last Name<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="last_name" placeholder="Last Name" id="Last-name">
+                                <input type="text" class="form-control" formControlName="last_name"
+                                    placeholder="Last Name" id="Last-name">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Contact No">Contact No<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="contact_no" placeholder="Contact No" id="contact-id">
+                                <input type="text" class="form-control" formControlName="contact_no"
+                                    placeholder="Contact No" id="contact-id">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Alternative No">Alternative No<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="alternative_no" placeholder="Alternative No"
-                                    id="alternative-no">
+                                <input type="text" class="form-control" formControlName="alternative_no"
+                                    placeholder="Alternative No" id="alternative-no">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Personal Email Id">Personal Email Id<span>*</span></label>
-                                <input type="email" class="form-control" formControlName="personal_email_id" placeholder="Personal Email Id"
-                                    id="personal-email-id">
+                                <input type="email" class="form-control" formControlName="personal_email_id"
+                                    placeholder="Personal Email Id" id="personal-email-id">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -53,40 +57,41 @@
                             </mat-form-field> -->
                             <div class="form-group">
                                 <label for="Address">Address<span>*</span></label>
-                                <textarea class="form-control"  formControlName="address" placeholder="Enter your text here..." rows="4"
-                                    id="comment"></textarea>
+                                <textarea class="form-control" formControlName="address"
+                                    placeholder="Enter your text here..." rows="4" id="comment"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Adhar Card Number">Adhar Card Number<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="adhar_card_number" placeholder="Adhar Card Number"
-                                    id="adhar-card-number">
+                                <input type="text" class="form-control" formControlName="adhar_card_number"
+                                    placeholder="Adhar Card Number" id="adhar-card-number">
                             </div>
 
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="PAN Card Number">PAN Card Number<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="pan_card_number" placeholder="PAN Card Number"
-                                    id="pan-card-number">
+                                <input type="text" class="form-control" formControlName="pan_card_number"
+                                    placeholder="PAN Card Number" id="pan-card-number">
                             </div>
 
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Account Number">Account Number<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="account_number" placeholder="Account Number"
-                                    id="account-number">
+                                <input type="text" class="form-control" formControlName="account_number"
+                                    placeholder="Account Number" id="account-number">
                             </div>
 
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group" >
-                                <label for="Account Number" >Date of Birth<span>*</span></label>
+                            <div class="form-group cust-datepicker">
+                                <label for="Account Number">Date of Birth<span>*</span></label>
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Date of Birth</mat-label>
-                                    <input matInput [matDatepicker]="datepicker" formControlName="date_of_birth" class="form-control">
+                                    <input matInput [matDatepicker]="datepicker" formControlName="date_of_birth"
+                                        class="form-control">
                                     <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                                     <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
                                     <mat-datepicker #datepicker>
@@ -95,15 +100,15 @@
                                             <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                                         </mat-datepicker-actions>
                                     </mat-datepicker>
-                                    
+
                                 </mat-form-field>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label for="Account Number" >Gender<span>*</span></label>
+                            <div class="form-group cust-select">
+                                <label for="Account Number">Gender<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Gender</mat-label>
+
                                     <mat-select formControlName="gender" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -113,10 +118,10 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-select">
                                 <label for="Account Number">City<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>City</mat-label>
+
                                     <mat-select formControlName="city" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -126,10 +131,10 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-select">
                                 <label for="Account Number">State<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>State</mat-label>
+
                                     <mat-select formControlName="state" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -139,10 +144,10 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-select">
                                 <label for="Account Number">Country<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Country</mat-label>
+
                                     <mat-select formControlName="country" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -152,10 +157,10 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-select">
                                 <label for="Account Number">Zip code<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Zip code</mat-label>
+
                                     <mat-select formControlName="zip_code" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -190,21 +195,22 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Employee Code">Employee Code<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="employee_code" class="form-control" placeholder="Your Employee Code"
-                                    id="employee-code">
+                                <input type="text" class="form-control" formControlName="employee_code"
+                                    class="form-control" placeholder="Your Employee Code" id="employee-code">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Role">Role<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="role" class="form-control" placeholder="Your Role" id="role">
+                                <input type="text" class="form-control" formControlName="role" class="form-control"
+                                    placeholder="Your Role" id="role">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-select">
                                 <label for="Reporting Person">Reporting Person<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Gender</mat-label>
+
                                     <mat-select formControlName="reporting_person" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -216,21 +222,24 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Domain">Domain<span>*</span></label>
-                                <input type="text" class="form-control" placeholder="Your Domain" id="domain" formControlName="domain" class="form-control">
+                                <input type="text" class="form-control" placeholder="Your Domain" id="domain"
+                                    formControlName="domain" class="form-control">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Sub Domain">Sub Domain<span>*</span></label>
-                                <input type="text" class="form-control" formControlName="sub_domain" class="form-control" placeholder="Your Sub Domain" id="sub-domain">
+                                <input type="text" class="form-control" formControlName="sub_domain"
+                                    class="form-control" placeholder="Your Sub Domain" id="sub-domain">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-datepicker">
                                 <label for="Date of Joining">Date of Joining<span>*</span></label>
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Date of Joining</mat-label>
-                                    <input matInput [matDatepicker]="datepicker1" formControlName="date_of_joining" class="form-control">
+                                    <input matInput [matDatepicker]="datepicker1" formControlName="date_of_joining"
+                                        class="form-control">
                                     <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                                     <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
                                     <mat-datepicker #datepicker1>
@@ -254,14 +263,15 @@
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="pwd">Password<span>*</span> </label>
-                                <input type="password" class="form-control" formControlName="Password" class="form-control" placeholder="Enter Your password" id="pwd">
+                                <input type="password" class="form-control" formControlName="Password"
+                                    class="form-control" placeholder="Enter Your password" id="pwd">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Confirm pwd">Confirm Password<span>*</span> </label>
-                                <input type="password" class="form-control" formControlName="confirm_password" class="form-control" placeholder="Enter Your Confirm password"
-                                    id="confirm-pwd">
+                                <input type="password" class="form-control" formControlName="confirm_password"
+                                    class="form-control" placeholder="Enter Your Confirm password" id="confirm-pwd">
                             </div>
                         </div>
 
@@ -296,7 +306,7 @@
                     <div class="sub-title">
                         <h2>+ Add University</h2>
                     </div>
-                    <div class="row">
+                    <div class="row add-university-formx">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Collage Name">Collage Name<span>*</span></label>
@@ -326,7 +336,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-datepicker">
                                 <label for="Date of Joining">Date of Joining<span>*</span></label>
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Date of Joining</mat-label>
@@ -379,7 +389,7 @@
                     <div class="sub-title">
                         <h2>+ Add School</h2>
                     </div>
-                    <div class="row">
+                    <div class="row add-school-formx">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="School Name">School Name<span>*</span></label>
@@ -407,7 +417,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="form-group">
+                            <div class="form-group cust-datepicker">
                                 <label for="Date of Joining">Date of Joining<span>*</span></label>
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Date of Joining</mat-label>
@@ -455,27 +465,125 @@
                         </mat-list>
                     </div>
                 </div>
-                <div>
-                    <div class="step-btn-wrap">
-                        <div class="back-btn-wrap">
-                            <button mat-button matStepperPrevious class="btn blackish_blue_button">Back</button>
-                        </div>
-                        <div class="next-btn-wrap">
-                            <!-- <p>Go to a different step to see the error state</p> -->
-                            <button mat-button matStepperNext class="btn blackish_blue_button">Next</button>
-                        </div>
+
+
+
+                <div class="step-btn-wrap">
+                    <div class="back-btn-wrap">
+                        <button mat-button matStepperPrevious class="btn blackish_blue_button">Back</button>
+                    </div>
+                    <div class="next-btn-wrap">
+                        <!-- <p>Go to a different step to see the error state</p> -->
+
+                        <button mat-button matStepperNext class="btn blackish_blue_button">Next</button>
                     </div>
                 </div>
             </form>
         </mat-step>
         <!-- -----------------------Fill out your address step end ------------------------------- -->
         <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            <p>You are now done.</p>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+            <ng-template matStepLabel>Experience Detail</ng-template>
+            <div class="employee-add-edit-inner-wrap">
+                <div class="main-title">
+                    <h1>Experience</h1>
+                </div>
+                <div class="sub-title">
+                    <h2>+ Add Company</h2>
+                </div>
+                <div class="row add-company-formx">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="Company Name">Company Name<span>*</span></label>
+                            <input type="text" class="form-control" placeholder="Company Name" id="company-name">
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="Position">Position<span>*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter Position" id="position">
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group cust-datepicker">
+                            <label for="Start Date">Start Date<span>*</span></label>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Date of Joining</mat-label>
+                                <input matInput [matDatepicker]="datepickerr">
+                                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                <mat-datepicker #datepickerr>
+                                    <mat-datepicker-actions>
+                                        <button mat-button matDatepickerCancel>Cancel</button>
+                                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group cust-datepicker">
+                            <label for="End Date">End Date<span>*</span></label>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>End Date</mat-label>
+                                <input matInput [matDatepicker]="datepicker4">
+                                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                <mat-datepicker #datepicker4>
+                                    <mat-datepicker-actions>
+                                        <button mat-button matDatepickerCancel>Cancel</button>
+                                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <mat-list>
+                        <mat-list-item>
+                            <div class="list-detail-wrap">
+                                <div>
+                                    <p matListItemTitle>IT Idol Technologies, Valsad</p>
+                                    <p matListItemLine>UI/UX Designer | 2 January 2020 - 3 January 2024 | Vapi</p>
+                                </div>
+                                <div>
+                                    <img src="../../../../assets/image/menu-dots.svg">
+                                </div>
+                            </div>
+
+
+                        </mat-list-item>
+                        <mat-list-item>
+                            <div class="list-detail-wrap">
+                                <div>
+                                    <p matListItemTitle>IT Idol Technologies, Valsad</p>
+                                    <p matListItemLine>UI/UX Designer | 2 January 2020 - 3 January 2024 | Vapi</p>
+                                </div>
+                                <div>
+                                    <img src="../../../../assets/image/menu-dots.svg">
+                                </div>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
             </div>
+
+            <div class="step-btn-wrap">
+                <div class="back-btn-wrap">
+                    <button mat-button matStepperPrevious class="btn blackish_blue_button">Back</button>
+                </div>
+                <div class="next-btn-wrap">
+                    <!-- <p>Go to a different step to see the error state</p> -->
+
+                    <button mat-button (click)="stepper.reset()" class="btn blackish_blue_button">Next</button>
+                </div>
+            </div>
+
         </mat-step>
     </mat-stepper>
 </div>

@@ -17,7 +17,7 @@
         <div class="sidenav-header" (click)="mobileQuery.matches ? snav.toggle() : collapsedNav = !collapsedNav">
             <span>{{collapsedNav &&
                 !mobileQuery.matches ? 'i' : 'It idol'}}</span>
-                <!-- <img *ngIf="collapsedNav && !mobileQuery.matches " src="assets/image/icons/danger.svg">
+            <!-- <img *ngIf="collapsedNav && !mobileQuery.matches " src="assets/image/icons/danger.svg">
                 <img *ngIf="!mobileQuery.matches && !collapsedNav" src="https://img.shields.io/npm/dm/webpack.svg"> -->
         </div>
         <app-sidebar></app-sidebar>
@@ -30,7 +30,7 @@
             </button>
             <app-header></app-header>
         </mat-toolbar>
-        <div>
+        <div class="containt-main-wrapp">
             <router-outlet></router-outlet>
         </div>
     </mat-drawer-content>
