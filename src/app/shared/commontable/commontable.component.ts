@@ -23,7 +23,6 @@ export class CommontableComponent implements OnInit {
     console.log("columns" , this.dataSource)
     this.tableData = new MatTableDataSource(this.dataSource);
     this.displayedColumns = this.columns.map((c:any) => c.columnDef);
-    // console.log('datatable ', this.displayedColumns)
   }
   
 }

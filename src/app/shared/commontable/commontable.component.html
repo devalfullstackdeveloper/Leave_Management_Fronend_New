@@ -2,7 +2,19 @@
 
   <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
     <th mat-header-cell *cdkHeaderCellDef>{{ column.header }}</th>
-    <td mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</td>
+    <td mat-cell *cdkCellDef="let row" style="width: 5%;">
+      <ng-container *ngIf="column.columnDef === 'image'; else textData">
+        <div *ngIf="row.profile_img === 'null'">
+          {{row?.full_name?.charAt(0).toUpperCase()}}
+        </div>
+        <div *ngIf="row.profile_img !== 'null'">
+          <img [src]="column.cell(row)" alt="image" style="width: 35%;">
+        </div>
+      </ng-container>
+      <ng-template #textData>
+        {{ column.cell(row) }}
+      </ng-template>
+    </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

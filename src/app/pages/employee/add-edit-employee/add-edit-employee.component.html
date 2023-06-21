@@ -11,81 +11,159 @@
                             <div class="form-group">
                                 <label for="First Name">First Name<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="first_name"
-                                    placeholder="First Name" id="first-name">
+                                    placeholder="Enter first name" id="first-name">
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['first_name']?.errors">
+                                <div *ngIf="firstFormControl?.['first_name']?.errors?.['required']" class="text-danger">
+                                    Please Enter First Name.
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Middle Name">Middle Name<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="middle_name"
-                                    placeholder="Middle Name" id="middle-name">
+                                    placeholder="Enter middle name" id="middle-name">
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['middle_name']?.errors">
+                                <div *ngIf="firstFormControl?.['middle_name']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter Middle Name.
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Last Name">Last Name<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="last_name"
-                                    placeholder="Last Name" id="Last-name">
+                                    placeholder="Enter last name" id="Last-name">
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['last_name']?.errors">
+                                <div *ngIf="firstFormControl?.['last_name']?.errors?.['required']" class="text-danger">
+                                    Please Enter Last Name.
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Contact No">Contact No<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="contact_no"
-                                    placeholder="Contact No" id="contact-id">
+                                    placeholder="Enter contact number" id="contact-id">
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['contact_no']?.errors">
+                                <div *ngIf="firstFormControl?.['contact_no']?.errors?.['required']" class="text-danger">
+                                    Please Enter Contact Number.
+                                </div>
+                                <div *ngIf="firstFormControl?.['contact_no']?.errors?.['pattern']" class="text-danger">
+                                    Number is invalid
+                                </div>
+                                <div *ngIf="firstFormControl?.['contact_no']?.errors?.['minLength']"
+                                    class="text-danger">
+                                    Number is sort
+                                </div>
+                                <div *ngIf="firstFormControl?.['contact_no']?.errors?.['maxLength']"
+                                    class="text-danger">
+                                    Number is long
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Alternative No">Alternative No<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="alternative_no"
-                                    placeholder="Alternative No" id="alternative-no">
+                                    placeholder="Enter alternative no" id="alternative-no">
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['alternative_no']?.errors">
+                                <div *ngIf="firstFormControl?.['alternative_no']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter Contact Number.
+                                </div>
+                                <div *ngIf="firstFormControl?.['alternative_no']?.errors?.['pattern']"
+                                    class="text-danger">
+                                    Number is invalid
+                                </div>
+                                <div *ngIf="firstFormControl?.['alternative_no']?.errors?.['minLength']"
+                                    class="text-danger">
+                                    Number is sort
+                                </div>
+                                <div *ngIf="firstFormControl?.['alternative_no']?.errors?.['maxLength']"
+                                    class="text-danger">
+                                    Number is long
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Personal Email Id">Personal Email Id<span>*</span></label>
                                 <input type="email" class="form-control" formControlName="personal_email_id"
-                                    placeholder="Personal Email Id" id="personal-email-id">
+                                    placeholder="Enter personal email id" id="personal-email-id"
+                                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}$">
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['personal_email_id']?.errors">
+                                <div *ngIf="firstFormControl?.['personal_email_id']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter E-mail.
+                                </div>
+                                <div *ngIf="firstFormControl?.['personal_email_id']?.errors?.['pattern']"
+                                    class="text-danger">
+                                    Please enter a valid email.
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <!-- <label for="Address">Address<span>*</span></label>
-                            <mat-form-field class="example-full-width">
-                                <mat-label>Address</mat-label>
-                                <textarea matInput placeholder="Enter your text here..."></textarea>
-                            </mat-form-field> -->
                             <div class="form-group">
                                 <label for="Address">Address<span>*</span></label>
                                 <textarea class="form-control" formControlName="address"
                                     placeholder="Enter your text here..." rows="4" id="comment"></textarea>
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['address']?.errors">
+                                <div *ngIf="firstFormControl?.['address']?.errors?.['required']" class="text-danger">
+                                    Please Enter Address.
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Adhar Card Number">Adhar Card Number<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="adhar_card_number"
-                                    placeholder="Adhar Card Number" id="adhar-card-number">
+                                    placeholder="Enter Adhar Card Number" id="adhar-card-number">
                             </div>
-
+                            <div *ngIf="isSubmitted && firstFormControl?.['adhar_card_number']?.errors">
+                                <div *ngIf="firstFormControl?.['adhar_card_number']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter Adhar Card Number.
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="PAN Card Number">PAN Card Number<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="pan_card_number"
-                                    placeholder="PAN Card Number" id="pan-card-number">
+                                    placeholder="Enter PAN card number" id="pan-card-number">
                             </div>
-
+                            <div *ngIf="isSubmitted && firstFormControl?.['pan_card_number']?.errors">
+                                <div *ngIf="firstFormControl?.['pan_card_number']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter PanCard Number
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Account Number">Account Number<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="account_number"
-                                    placeholder="Account Number" id="account-number">
+                                    placeholder="Enter account number" id="account-number">
                             </div>
-
+                            <div *ngIf="isSubmitted && firstFormControl?.['account_number']?.errors">
+                                <div *ngIf="firstFormControl?.['account_number']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter Account Number
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
+
+                            <!-- <div class="form-group"> -->
                             <div class="form-group cust-datepicker">
                                 <label for="Account Number">Date of Birth<span>*</span></label>
                                 <mat-form-field class="example-full-width">
@@ -103,12 +181,18 @@
 
                                 </mat-form-field>
                             </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['date_of_birth']?.errors">
+                                <div *ngIf="firstFormControl?.['date_of_birth']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please select date of birth
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group cust-select">
                                 <label for="Account Number">Gender<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-
+                                    <mat-label>Select Gender</mat-label>
                                     <mat-select formControlName="gender" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -116,12 +200,17 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['gender']?.errors">
+                                <div *ngIf="firstFormControl?.['gender']?.errors?.['required']" class="text-danger">
+                                    Please select gender
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group cust-select">
                                 <label for="Account Number">City<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-
+                                    <mat-label>Select City</mat-label>
                                     <mat-select formControlName="city" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -129,12 +218,17 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['city']?.errors">
+                                <div *ngIf="firstFormControl?.['city']?.errors?.['required']" class="text-danger">
+                                    Please select city
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group cust-select">
                                 <label for="Account Number">State<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-
+                                    <mat-label>Select State</mat-label>
                                     <mat-select formControlName="state" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -142,12 +236,17 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['state']?.errors">
+                                <div *ngIf="firstFormControl?.['state']?.errors?.['required']" class="text-danger">
+                                    Please select state
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group cust-select">
                                 <label for="Account Number">Country<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-
+                                    <mat-label>Select Country</mat-label>
                                     <mat-select formControlName="country" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -155,18 +254,28 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['country']?.errors">
+                                <div *ngIf="firstFormControl?.['country']?.errors?.['required']" class="text-danger">
+                                    Please select country
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group cust-select">
                                 <label for="Account Number">Zip code<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-
+                                    <mat-label>Select Zip Code</mat-label>
                                     <mat-select formControlName="zip_code" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
                                         <mat-option value="option3">Option 3</mat-option>
                                     </mat-select>
                                 </mat-form-field>
+                            </div>
+                            <div *ngIf="isSubmitted && firstFormControl?.['zip_code']?.errors">
+                                <div *ngIf="firstFormControl?.['zip_code']?.errors?.['required']" class="text-danger">
+                                    Please select Zip code
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -175,6 +284,8 @@
                 <div class="step-btn-wrap">
                     <div class="next-btn-wrap">
                         <!-- <p>Go to a different step to see the error state</p> -->
+                        <!-- <button mat-button matStepperNext class="btn blackish_blue_button"
+                            [disabled]="firstFormGroup.invalid">Next</button>  -->
                         <button mat-button matStepperNext class="btn blackish_blue_button">Next</button>
                     </div>
                 </div>
@@ -198,6 +309,7 @@
                                 <input type="text" class="form-control" formControlName="employee_code"
                                     class="form-control" placeholder="Your Employee Code" id="employee-code">
                             </div>
+
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
@@ -303,16 +415,16 @@
                     <div class="main-title">
                         <h1>University</h1>
                     </div>
-                    <div class="sub-title">
-                        <h2>+ Add University</h2>
+                    <div class="sub-title" >
+                        <!-- <h2 (click)="showUniversityForm = !showUniversityForm">+ Add University</h2> -->
+                        <button class="sub-title" (click)="showUniversityForm = !showUniversityForm">+ Add University</button>
                     </div>
-                    <div class="row add-university-formx">
+                    <div class="row add-university-formx" *ngIf="showUniversityForm">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Collage Name">Collage Name<span>*</span></label>
                                 <input type="text" class="form-control" placeholder="Collage Name" id="collage-name">
                             </div>
-
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
@@ -387,9 +499,9 @@
                         <h1>School</h1>
                     </div>
                     <div class="sub-title">
-                        <h2>+ Add School</h2>
+                        <h2 (click)="showSchoolForm = !showSchoolForm" >+ Add School</h2>
                     </div>
-                    <div class="row add-school-formx">
+                    <div class="row add-school-formx" *ngIf="showSchoolForm">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="School Name">School Name<span>*</span></label>

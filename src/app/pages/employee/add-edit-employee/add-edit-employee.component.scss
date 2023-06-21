@@ -44,6 +44,7 @@
                     }
                 }
             }
+            
             .cust-select {
                 .mat-form-field-wrapper {
                     padding-bottom: 0;
@@ -131,5 +132,14 @@
                 }
             }
         }
+    }
+    .button{
+        color: #E8244F;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    margin: 0;
+    border: none;
+    background: white
     }
 }
