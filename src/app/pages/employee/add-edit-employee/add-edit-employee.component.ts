@@ -17,6 +17,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddEditEmployeeComponent implements OnInit {
 
+  showUniversityForm: boolean = false;
+  showSchoolForm: boolean = false;
+  isSubmitted: boolean = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -29,14 +32,14 @@ export class AddEditEmployeeComponent implements OnInit {
       first_name: ['', Validators.required],
       middle_name: ['',Validators.required],
       last_name: ['',Validators.required],
-      contact_no: ['',Validators.required],
-      alternative_no: ['',Validators.required],
-      personal_email_id: ['',Validators.required],
+      contact_no: ['',Validators.required , Validators.length],
+      alternative_no: ['',Validators.required ,Validators.pattern("[0-9]*"),Validators.minLength(10),Validators.maxLength(10)],
+      personal_email_id: ['',Validators.required , Validators.email],
       address:['',Validators.required],
-      adhar_card_number:['',Validators.required],
+      adhar_card_number:['',Validators.required , Validators.minLength(14)],
       pan_card_number:['',Validators.required],
       account_number:['',Validators.required],
-      date_of_birth:['',Validators.required],
+      date_of_birth:['',Validators.required , ],
       gender:['',Validators.required],
       city:['',Validators.required],
       state:['',Validators.required],
@@ -57,10 +60,24 @@ export class AddEditEmployeeComponent implements OnInit {
       
     });
     this.thirdFormGroup = this.fb.group({
-      thirdCtrl: ['', Validators.required],
+      collage_Name: ['', Validators.required],
+      university : ['', Validators.required],
+      
     });
+    console.log("this.firstFormControl" ,this.firstFormControl)
   }
 
 
+  get firstFormControl() {
+    return this.firstFormGroup.controls;
+  }
+
+  get SecondFormControl() {
+    return this.secondFormGroup.controls;
+  }
+
+  get thirdFormControl() {
+    return this.thirdFormGroup.controls;
+  }
 
 }
