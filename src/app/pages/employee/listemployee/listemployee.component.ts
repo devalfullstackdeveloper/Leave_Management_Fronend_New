@@ -13,6 +13,9 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ListemployeeComponent implements OnInit {
 
+
+  searchKey : any ;
+
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -31,6 +34,7 @@ export class ListemployeeComponent implements OnInit {
     { columnDef: 'email', header: 'Email', cell: (element: any) => `${element.email}` },
     { columnDef: 'designation', header: 'Designation', cell: (element: any) => `${element.designation}` },
     { columnDef: 'date_of_joining', header: 'Date of Joining', cell: (element: any) => `${element.date_of_joining}`},
+    { columnDef: 'actions', header: 'Actions', cell: (element: any) => null }
   ];
   imageurl:string = this.apiService.imageUrl;
 
@@ -40,13 +44,28 @@ export class ListemployeeComponent implements OnInit {
 
 
   getEmployeeList() {
-    console.log('imageurl ', this.imageurl)
     this.apiService.getEmployees().subscribe(
       (res => {
         this.dataSource = new MatTableDataSource(res.data);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        console.log(this.dataSource)
       })
     )
+  }
+
+
+  applyFilter(event : any){
+    this.searchKey = event.target.value
+    this.dataSource.filter = this.searchKey.trim().toLowerCase(); 
+  }
+
+  onSearchClear(){
+    this.searchKey = "";
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  receiveMessage(event:any) {
+    
   }
 }
