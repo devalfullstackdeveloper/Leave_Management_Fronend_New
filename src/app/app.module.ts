@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.component';
 import { SharedModule } from './shared/shared.module';
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -36,8 +36,8 @@ import { MatSortModule } from '@angular/material/sort';
     ReactiveFormsModule,
     MatTableModule ,
     MatPaginatorModule,
-    MatSortModule,
-    MatButtonModule,
+    MatSortModule
+    
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthenticateInterceptor, multi: true }],
   bootstrap: [AppComponent]

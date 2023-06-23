@@ -33,8 +33,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log("abcd", this.loginForm)
     this.submitted = true;
     if (this.loginForm.invalid) {
+      ;
+
       return;
     } else {
       this.apiservice.getSignin(this.loginForm.value).subscribe(res => {

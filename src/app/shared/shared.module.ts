@@ -7,9 +7,6 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu'
 
 
 @NgModule({
@@ -22,11 +19,7 @@ import {MatMenuModule} from '@angular/material/menu'
     MatPaginatorModule,
     CdkTableModule,
     MatFormFieldModule,
-    MatSortModule,
-    MatIconModule,
-    MatSortModule,
-    MatButtonModule,
-    MatMenuModule
+    MatSortModule
   ],
   exports: [
     CommontableComponent,
@@ -36,11 +29,7 @@ import {MatMenuModule} from '@angular/material/menu'
     CdkTableModule,
     MatFormFieldModule,
     MatSortModule,
-    MatInputModule,
-    MatIconModule,
-    MatSortModule,
-    MatButtonModule,
-    MatMenuModule
-    ]
+    MatInputModule
+  ]
 })
 export class SharedModule { }
