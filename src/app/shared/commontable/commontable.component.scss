@@ -1,3 +1,30 @@
 table {
     width: 100%;
 }
+
+.round-image {
+    border-radius: 50%;
+  }
+
+  .round-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 35%;
+  background-color: #ccc;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #c03131;
+}
+
+.right-symbol::after {
+    content: '\2718';
+    color: red; 
+  }
+  
+  .cross-symbol::after {
+    content: '\2714';
+    color: green;
+  }

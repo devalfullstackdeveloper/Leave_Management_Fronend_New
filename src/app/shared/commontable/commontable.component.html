@@ -5,12 +5,42 @@
     <td mat-cell *cdkCellDef="let row" style="width: 5%;">
       <ng-container *ngIf="column.columnDef === 'image'; else textData">
         <div *ngIf="row.profile_img === 'null'">
-          {{row?.full_name?.charAt(0).toUpperCase()}}
+          <div class="round-letter" [ngClass]="{'cross-symbol': row.flag !== 1, 'right-symbol': row.flag === 1}">
+            {{row?.full_name?.charAt(0).toUpperCase()}}</div>
         </div>
         <div *ngIf="row.profile_img !== 'null'">
-          <img [src]="column.cell(row)" alt="image" style="width: 35%;">
+          <div [ngClass]="{'cross-symbol': row.flag !== 1, 'right-symbol': row.flag === 1}">
+            <img [src]="column.cell(row)" alt="image" style="width: 35%;" class="round-image">
+          </div>
+
         </div>
       </ng-container>
+      <ng-container *ngIf="column.columnDef === 'actions'">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="sendMessage(row.id, 'View')">
+            <span>View</span>
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-menu-item (click)="sendMessage(row, 'Edit')">
+            <span>Edit</span>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-menu-item *ngIf="row.flag==0"> <mat-icon class="">check_circle</mat-icon><span>Active</span></button>
+          <button mat-menu-item *ngIf="row.flag==1"> <mat-icon>highlight_off</mat-icon><span>InActive</span></button>
+          <!-- <button mat-menu-item (click)="sendMessage(row.id, 'Active')">
+            <mat-icon class="">notifications_off</mat-icon>
+            <span>Active</span>
+          </button>
+          <button mat-menu-item (click)="sendMessage(row.id, 'In Active')">
+            <mat-icon>notifications_off</mat-icon>
+            <span>In Active</span>
+          </button> -->
+        </mat-menu>
+      </ng-container>
+
       <ng-template #textData>
         {{ column.cell(row) }}
       </ng-template>

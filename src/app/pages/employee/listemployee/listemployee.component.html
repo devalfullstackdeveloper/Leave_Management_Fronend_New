@@ -2,7 +2,19 @@
     <a class="nav-link" [routerLink]="['/layout/employee/add']"><button class="btn btn-primary" type="button">Add
     Employee</button></a>
 </div>
-<app-commontable [dataSource]="dataSource" [columns]="columns" >
+
+<div class="search-div">
+    <mat-form-field class="search-form field" floatLabel="never">
+      <input matInput  fullwidth placeholder="search" [value]="[searchKey]"
+        autocomplete="off" (keyup)="applyFilter($event)">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear"
+        *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+<app-commontable [dataSource]="dataSource" [columns]="columns" (messageEvent)="receiveMessage($event)"  >
 </app-commontable>
 
 <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons aria-label="Select page of periodic elements">

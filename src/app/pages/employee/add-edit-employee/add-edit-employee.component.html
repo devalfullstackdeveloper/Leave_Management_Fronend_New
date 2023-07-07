@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <label for="Contact No">Contact No<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="contact_no"
-                                    placeholder="Enter contact number" id="contact-id">
+                                    placeholder="enter contact number" id="contact-id">
                             </div>
                             <div *ngIf="isSubmitted && firstFormControl?.['contact_no']?.errors">
                                 <div *ngIf="firstFormControl?.['contact_no']?.errors?.['required']" class="text-danger">
@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <label for="Alternative No">Alternative No<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="alternative_no"
-                                    placeholder="Enter alternative no" id="alternative-no">
+                                    placeholder="enter alternative number" id="alternative-no">
                             </div>
                             <div *ngIf="isSubmitted && firstFormControl?.['alternative_no']?.errors">
                                 <div *ngIf="firstFormControl?.['alternative_no']?.errors?.['required']"
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <label for="Personal Email Id">Personal Email Id<span>*</span></label>
                                 <input type="email" class="form-control" formControlName="personal_email_id"
-                                    placeholder="Enter personal email id" id="personal-email-id"
+                                    placeholder="enter personal email id" id="personal-email-id"
                                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}$">
                             </div>
                             <div *ngIf="isSubmitted && firstFormControl?.['personal_email_id']?.errors">
@@ -162,7 +162,6 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-
                             <!-- <div class="form-group"> -->
                             <div class="form-group cust-datepicker">
                                 <label for="Account Number">Date of Birth<span>*</span></label>
@@ -178,7 +177,6 @@
                                             <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                                         </mat-datepicker-actions>
                                     </mat-datepicker>
-
                                 </mat-form-field>
                             </div>
                             <div *ngIf="isSubmitted && firstFormControl?.['date_of_birth']?.errors">
@@ -192,7 +190,7 @@
                             <div class="form-group cust-select">
                                 <label for="Account Number">Gender<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Select Gender</mat-label>
+                                    <mat-label>Select gender</mat-label>
                                     <mat-select formControlName="gender" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -210,7 +208,7 @@
                             <div class="form-group cust-select">
                                 <label for="Account Number">City<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Select City</mat-label>
+                                    <mat-label>Select city</mat-label>
                                     <mat-select formControlName="city" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -228,7 +226,7 @@
                             <div class="form-group cust-select">
                                 <label for="Account Number">State<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Select State</mat-label>
+                                    <mat-label>Select state</mat-label>
                                     <mat-select formControlName="state" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -246,7 +244,7 @@
                             <div class="form-group cust-select">
                                 <label for="Account Number">Country<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Select Country</mat-label>
+                                    <mat-label>Enter country</mat-label>
                                     <mat-select formControlName="country" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -264,7 +262,7 @@
                             <div class="form-group cust-select">
                                 <label for="Account Number">Zip code<span>*</span></label>
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Select Zip Code</mat-label>
+                                    <mat-label>Enter zip Code</mat-label>
                                     <mat-select formControlName="zip_code" class="form-control">
                                         <mat-option value="option1">Option 1</mat-option>
                                         <mat-option value="option2">Option 2 </mat-option>
@@ -283,10 +281,10 @@
 
                 <div class="step-btn-wrap">
                     <div class="next-btn-wrap">
-                        <!-- <p>Go to a different step to see the error state</p> -->
+                        <button mat-button matStepperNext class="btn blackish_blue_button"
+                            (click)="goToSecondPage()">Next</button>
                         <!-- <button mat-button matStepperNext class="btn blackish_blue_button"
-                            [disabled]="firstFormGroup.invalid">Next</button>  -->
-                        <button mat-button matStepperNext class="btn blackish_blue_button">Next</button>
+                            [disabled]="!firstFormGroup.valid">Next</button> -->
                     </div>
                 </div>
             </form>
@@ -297,7 +295,7 @@
         <!-- -----------------------Fill out your address step start ------------------------------- -->
         <mat-step [stepControl]="secondFormGroup" errorMessage="All Address information is required.">
             <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Fill out your address</ng-template>
+                <ng-template matStepLabel>Professional Details</ng-template>
 
 
 
@@ -309,13 +307,23 @@
                                 <input type="text" class="form-control" formControlName="employee_code"
                                     class="form-control" placeholder="Your Employee Code" id="employee-code">
                             </div>
-
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['employee_code']?.errors">
+                                <div *ngIf="SecondFormControl?.['employee_code']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please enter employee code
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Role">Role<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="role" class="form-control"
                                     placeholder="Your Role" id="role">
+                            </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['role']?.errors">
+                                <div *ngIf="SecondFormControl?.['role']?.errors?.['required']" class="text-danger">
+                                    Please enter your role
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -330,6 +338,12 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['reporting_person']?.errors">
+                                <div *ngIf="SecondFormControl?.['reporting_person']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please select reporting person
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
@@ -337,12 +351,23 @@
                                 <input type="text" class="form-control" placeholder="Your Domain" id="domain"
                                     formControlName="domain" class="form-control">
                             </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['domain']?.errors">
+                                <div *ngIf="SecondFormControl?.['domain']?.errors?.['required']" class="text-danger">
+                                    Please enter your domain
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Sub Domain">Sub Domain<span>*</span></label>
                                 <input type="text" class="form-control" formControlName="sub_domain"
                                     class="form-control" placeholder="Your Sub Domain" id="sub-domain">
+                            </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['sub_domain']?.errors">
+                                <div *ngIf="SecondFormControl?.['sub_domain']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please enter your sub-domain
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -353,7 +378,7 @@
                                     <input matInput [matDatepicker]="datepicker1" formControlName="date_of_joining"
                                         class="form-control">
                                     <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker1"></mat-datepicker-toggle>
                                     <mat-datepicker #datepicker1>
                                         <mat-datepicker-actions>
                                             <button mat-button matDatepickerCancel>Cancel</button>
@@ -363,13 +388,29 @@
 
                                 </mat-form-field>
                             </div>
-
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['date_of_joining']?.errors">
+                                <div *ngIf="SecondFormControl?.['date_of_joining']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please select date
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Professional Email">Professional Email<span>*</span></label>
                                 <input type="email" class="form-control" placeholder="Your Professional Email"
-                                    id="professional-email" formControlName="professional_email" class="form-control">
+                                    id="professional-email" formControlName="professional_email" class="form-control"
+                                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}$">
+                            </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['professional_email']?.errors">
+                                <div *ngIf="SecondFormControl?.['professional_email']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter E-mail.
+                                </div>
+                                <div *ngIf="firstFormControl?.['professional_email']?.errors?.['pattern']"
+                                    class="text-danger">
+                                    Please enter a valid email.
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -378,6 +419,11 @@
                                 <input type="password" class="form-control" formControlName="Password"
                                     class="form-control" placeholder="Enter Your password" id="pwd">
                             </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['Password']?.errors">
+                                <div *ngIf="SecondFormControl?.['Password']?.errors?.['required']" class="text-danger">
+                                    Please Enter password
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
@@ -385,8 +431,13 @@
                                 <input type="password" class="form-control" formControlName="confirm_password"
                                     class="form-control" placeholder="Enter Your Confirm password" id="confirm-pwd">
                             </div>
+                            <div *ngIf="isSubmitted1 && SecondFormControl?.['confirm_password']?.errors">
+                                <div *ngIf="SecondFormControl?.['confirm_password']?.errors?.['required']"
+                                    class="text-danger">
+                                    Please Enter password
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="step-btn-wrap">
@@ -395,12 +446,10 @@
                     </div>
                     <div class="next-btn-wrap">
                         <!-- <p>Go to a different step to see the error state</p> -->
-
-                        <button mat-button matStepperNext class="btn blackish_blue_button">Next</button>
+                        <button mat-button matStepperNext class="btn blackish_blue_button"
+                            (click)="goToThirdPage()">Next</button>
                     </div>
-
                 </div>
-
             </form>
         </mat-step>
         <!-- -----------------------Fill out your address step end ------------------------------- -->
@@ -415,54 +464,89 @@
                     <div class="main-title">
                         <h1>University</h1>
                     </div>
-                    <div class="sub-title" >
-                        <!-- <h2 (click)="showUniversityForm = !showUniversityForm">+ Add University</h2> -->
-                        <button class="sub-title" (click)="showUniversityForm = !showUniversityForm">+ Add University</button>
+                    <div class="sub-title">
+                        <h2>
+                            <span (click)="showUniversityForm = !showUniversityForm" style="cursor:pointer;">
+                                + Add University
+                            </span>
+                        </h2>
                     </div>
-                    <div class="row add-university-formx" *ngIf="showUniversityForm">
+                    <div class="row add-university-formx" *ngIf="showUniversityForm" >
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Collage Name">Collage Name<span>*</span></label>
-                                <input type="text" class="form-control" placeholder="Collage Name" id="collage-name">
+                                <input type="text" class="form-control" placeholder="Collage Name" id="collage-name" formControlName="collage_name">
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['collage_name']?.errors">
+                                <div *ngIf="thirdFormControl?.['collage_name']?.errors?.['required']" class="text-danger">
+                                    Please Enter Collage Name
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="University">University<span>*</span></label>
-                                <input type="text" class="form-control" placeholder="Enter University" id="university">
+                                <input type="text" class="form-control" placeholder="Enter University" id="university" formControlName="University" >
                             </div>
-
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['University']?.errors">
+                                <div *ngIf="thirdFormControl?.['University']?.errors?.['required']" class="text-danger">
+                                    Please Enter University Name
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label for="Digree"><span>*</span></label>
-                                <input type="text" class="form-control" placeholder="Enter Digree" id="digree">
+                                <label for="degree"><span>*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Degree" id="degree" formControlName="degree">
                             </div>
-
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['degree']?.errors">
+                                <div *ngIf="thirdFormControl?.['degree']?.errors?.['required']" class="text-danger">
+                                    Please Enter Degree
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Account Number">Marks / Percentage / Grade<span>*</span></label>
                                 <input type="text" class="form-control" placeholder="Marks / Percentage / Grade"
-                                    id="account-number">
+                                    id="account-number" formControlName="marks_percentage_grade">
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['marks_percentage_grade']?.errors">
+                                <div *ngIf="thirdFormControl?.['marks_percentage_grade']?.errors?.['required']" class="text-danger">
+                                    Please Enter marks/percentage/grade
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group cust-datepicker">
-                                <label for="Date of Joining">Date of Joining<span>*</span></label>
+                                <!-- <label for="Date of Joining">Date of Joining<span>*</span></label> -->
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Date of Joining</mat-label>
-                                    <input matInput [matDatepicker]="datepicker2">
+                                    <!-- <mat-label>Date of Joining</mat-label> -->
+                                    <input matInput [matDatepicker]="datepicker2" formControlName="date_of_Joining">
                                     <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
                                     <mat-datepicker #datepicker2>
                                         <mat-datepicker-actions>
                                             <button mat-button matDatepickerCancel>Cancel</button>
                                             <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                                         </mat-datepicker-actions>
                                     </mat-datepicker>
-
                                 </mat-form-field>
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['date_of_Joining']?.errors">
+                                <div *ngIf="thirdFormControl?.['date_of_Joining']?.errors?.['required']" class="text-danger">
+                                    Please Enter Joining Date
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4">
+                            <div class="next-btn-wrap">
+                                <button mat-button  class="btn blackish_blue_button">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4">
+                            <div class="next-btn-wrap">
+                                <button mat-button  class="btn blackish_blue_button" (click)="saveUniversityData()">Save</button>
                             </div>
                         </div>
                     </div>
@@ -487,6 +571,18 @@
                                         <p matListItemTitle>Veer Narmad South Gujarat University</p>
                                         <p matListItemLine>Master of Computer Applications</p>
                                         <p matListItemLine>Grade:A, paassing year: 2015</p>
+                                    </div>
+                                    <div>
+                                        <img src="../../../../assets/image/menu-dots.svg">
+                                    </div>
+                                </div>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <div class="list-detail-wrap" *ngIf="universityData">
+                                    <div>
+                                        <p matListItemTitle>{{universityData.collage_name}} {{universityData.university}}</p>
+                                        <p matListItemLine>{{universityData.degree}}</p>
+                                        <p matListItemLine>Grade : {{universityData.marks_percentage_grade}}</p>
                                     </div>
                                     <div>
                                         <img src="../../../../assets/image/menu-dots.svg">
@@ -499,51 +595,92 @@
                         <h1>School</h1>
                     </div>
                     <div class="sub-title">
-                        <h2 (click)="showSchoolForm = !showSchoolForm" >+ Add School</h2>
+                        <h2>
+                            <span (click)="showSchoolForm = !showSchoolForm" style="cursor: pointer;">
+                                + Add School
+                            </span>
+                        </h2>
                     </div>
                     <div class="row add-school-formx" *ngIf="showSchoolForm">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="School Name">School Name<span>*</span></label>
-                                <input type="text" class="form-control" placeholder="School Name" id="school-name">
+                                <input type="text" class="form-control" placeholder="School Name" id="school-name"
+                                formControlName="school_name">
                             </div>
-
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['school_name']?.errors">
+                                <div *ngIf="thirdFormControl?.['school_name']?.errors?.['required']" class="text-danger">
+                                    Please Enter School Name
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="University">Board<span>*</span></label>
-                                <input type="text" class="form-control" placeholder="Enter University" id="university">
+                                <input type="text" class="form-control" placeholder="Board Narmad" id="university"
+                                formControlName="board">
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['board']?.errors">
+                                <div *ngIf="thirdFormControl?.['board']?.errors?.['required']" class="text-danger">
+                                    Please Enter Board Name
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Digree"><span>*</span></label>
-                                <input type="text" class="form-control" placeholder="Enter Digree" id="digree">
+                                <input type="text" class="form-control" placeholder="Enter Digree" id="digree"
+                                formControlName="school_degree">
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['school_degree']?.errors">
+                                <div *ngIf="thirdFormControl?.['school_degree']?.errors?.['required']" class="text-danger">
+                                    Please Enter Degree
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="Account Number">Marks / Percentage / Grade<span>*</span></label>
                                 <input type="text" class="form-control" placeholder="Marks / Percentage / Grade"
-                                    id="account-number">
+                                    id="account-number" formControlName="school_marks_percentage_grade">
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['school_marks_percentage_grade']?.errors">
+                                <div *ngIf="thirdFormControl?.['school_marks_percentage_grade']?.errors?.['required']" class="text-danger">
+                                    Please Enter marks/percentage/grade
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group cust-datepicker">
-                                <label for="Date of Joining">Date of Joining<span>*</span></label>
+                                <!-- <label for="Date of Joining">Date of Joining<span>*</span></label> -->
                                 <mat-form-field class="example-full-width">
-                                    <mat-label>Date of Joining</mat-label>
-                                    <input matInput [matDatepicker]="datepicker3">
+                                    <!-- <mat-label>Date of Joining</mat-label> -->
+                                    <input matInput [matDatepicker]="datepicker3" placeholder="Date of Joining"
+                                    formControlName="school_date_of_Joining">
                                     <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                    <mat-datepicker-toggle matIconSuffix [for]="datepicker3"></mat-datepicker-toggle>
                                     <mat-datepicker #datepicker3>
                                         <mat-datepicker-actions>
                                             <button mat-button matDatepickerCancel>Cancel</button>
                                             <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                                         </mat-datepicker-actions>
                                     </mat-datepicker>
-
                                 </mat-form-field>
+                            </div>
+                            <div *ngIf="isSubmitted2 && thirdFormControl?.['school_date_of_Joining']?.errors">
+                                <div *ngIf="thirdFormControl?.['school_date_of_Joining']?.errors?.['required']" class="text-danger">
+                                    Please Enter Joining Date
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4">
+                            <div class="next-btn-wrap">
+                                <button mat-button  class="btn blackish_blue_button">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4">
+                            <div class="next-btn-wrap">
+                                <button mat-button  class="btn blackish_blue_button" (click)="saveSchoolData()">Save</button>
                             </div>
                         </div>
                     </div>
@@ -574,48 +711,71 @@
                                     </div>
                                 </div>
                             </mat-list-item>
+                            <mat-list-item>
+                                <div class="list-detail-wrap" *ngIf="schoolData">
+                                    <div>
+                                        <p matListItemTitle>{{schoolData.school_name}} {{schoolData.board}}</p>
+                                        <p matListItemLine>{{schoolData.school_degree}}</p>
+                                        <p matListItemLine>Grade : {{schoolData.school_marks_percentage_grade}}</p>
+                                    </div>
+                                    <div>
+                                        <img src="../../../../assets/image/menu-dots.svg">
+                                    </div>
+                                </div>
+                            </mat-list-item>
                         </mat-list>
                     </div>
                 </div>
-
-
-
                 <div class="step-btn-wrap">
                     <div class="back-btn-wrap">
                         <button mat-button matStepperPrevious class="btn blackish_blue_button">Back</button>
                     </div>
                     <div class="next-btn-wrap">
                         <!-- <p>Go to a different step to see the error state</p> -->
-
-                        <button mat-button matStepperNext class="btn blackish_blue_button">Next</button>
+                        <button mat-button matStepperNext class="btn blackish_blue_button" (click)="goToFourthPage()">Next</button>
                     </div>
                 </div>
             </form>
         </mat-step>
         <!-- -----------------------Fill out your address step end ------------------------------- -->
-        <mat-step>
+        <mat-step [stepControl]="fourthFormGroup" errorMessage="All Company Detail is required.">
+            <form [formGroup]="fourthFormGroup">
             <ng-template matStepLabel>Experience Detail</ng-template>
             <div class="employee-add-edit-inner-wrap">
                 <div class="main-title">
                     <h1>Experience</h1>
                 </div>
                 <div class="sub-title">
-                    <h2>+ Add Company</h2>
+                    <h2>
+                        <span (click)="showCompanyDeatilsForm = !showCompanyDeatilsForm" style="cursor: pointer;">
+                            + Add Company
+                        </span>
+                    </h2>
                 </div>
-                <div class="row add-company-formx">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="row add-company-formx" *ngIf="showCompanyDeatilsForm">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
                             <label for="Company Name">Company Name<span>*</span></label>
-                            <input type="text" class="form-control" placeholder="Company Name" id="company-name">
+                            <input type="text" class="form-control" placeholder="Company Name" id="company-name"
+                            formControlName="company_name">
                         </div>
-
+                        <div *ngIf="isSubmitted3 && fourthFormControl?.['company_name']?.errors">
+                            <div *ngIf="fourthFormControl?.['company_name']?.errors?.['required']" class="text-danger">
+                                Please Enter Company Name
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
                             <label for="Position">Position<span>*</span></label>
-                            <input type="text" class="form-control" placeholder="Enter Position" id="position">
+                            <input type="text" class="form-control" placeholder="Enter Position" id="position"
+                            formControlName="position">
                         </div>
-
+                        <div *ngIf="isSubmitted3 && fourthFormControl?.['position']?.errors">
+                            <div *ngIf="fourthFormControl?.['position']?.errors?.['required']" class="text-danger">
+                                Please Enter Position
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -623,17 +783,21 @@
                             <label for="Start Date">Start Date<span>*</span></label>
                             <mat-form-field class="example-full-width">
                                 <mat-label>Date of Joining</mat-label>
-                                <input matInput [matDatepicker]="datepickerr">
+                                <input matInput [matDatepicker]="datepickerr" formControlName="start_date" placeholder="Start Date">
                                 <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-                                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                <mat-datepicker-toggle matIconSuffix [for]="datepickerr"></mat-datepicker-toggle>
                                 <mat-datepicker #datepickerr>
                                     <mat-datepicker-actions>
                                         <button mat-button matDatepickerCancel>Cancel</button>
                                         <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
                                     </mat-datepicker-actions>
                                 </mat-datepicker>
-
                             </mat-form-field>
+                        </div>
+                        <div *ngIf="isSubmitted3 && fourthFormControl?.['start_date']?.errors">
+                            <div *ngIf="fourthFormControl?.['start_date']?.errors?.['required']" class="text-danger">
+                                Please Enter start date
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -641,9 +805,9 @@
                             <label for="End Date">End Date<span>*</span></label>
                             <mat-form-field class="example-full-width">
                                 <mat-label>End Date</mat-label>
-                                <input matInput [matDatepicker]="datepicker4">
+                                <input matInput [matDatepicker]="datepicker4" formControlName="end_date" placeholder="Start Date">
                                 <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-                                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                                <mat-datepicker-toggle matIconSuffix [for]="datepicker4"></mat-datepicker-toggle>
                                 <mat-datepicker #datepicker4>
                                     <mat-datepicker-actions>
                                         <button mat-button matDatepickerCancel>Cancel</button>
@@ -652,6 +816,21 @@
                                 </mat-datepicker>
 
                             </mat-form-field>
+                        </div>
+                        <div *ngIf="isSubmitted3 && fourthFormControl?.['end_date']?.errors">
+                            <div *ngIf="fourthFormControl?.['end_date']?.errors?.['required']" class="text-danger">
+                                Please Enter end date
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4">
+                        <div class="next-btn-wrap">
+                            <button mat-button  class="btn blackish_blue_button">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4">
+                        <div class="next-btn-wrap">
+                            <button mat-button  class="btn blackish_blue_button" (click)="saveCompanyData()">Save</button>
                         </div>
                     </div>
                 </div>
@@ -667,14 +846,23 @@
                                     <img src="../../../../assets/image/menu-dots.svg">
                                 </div>
                             </div>
-
-
                         </mat-list-item>
                         <mat-list-item>
                             <div class="list-detail-wrap">
                                 <div>
                                     <p matListItemTitle>IT Idol Technologies, Valsad</p>
                                     <p matListItemLine>UI/UX Designer | 2 January 2020 - 3 January 2024 | Vapi</p>
+                                </div>
+                                <div>
+                                    <img src="../../../../assets/image/menu-dots.svg">
+                                </div>
+                            </div>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <div class="list-detail-wrap" *ngIf="companyData">
+                                <div>
+                                    <p matListItemTitle>{{companyData.company_name}}</p>
+                                    <p matListItemLine>{{companyData.position}} | {{convertDateToLocal(companyData.start_date)}} - {{convertDateToLocal(companyData.end_date)}}</p>
                                 </div>
                                 <div>
                                     <img src="../../../../assets/image/menu-dots.svg">
@@ -695,7 +883,7 @@
                     <button mat-button (click)="stepper.reset()" class="btn blackish_blue_button">Next</button>
                 </div>
             </div>
-
+            </form>
         </mat-step>
     </mat-stepper>
 </div>
